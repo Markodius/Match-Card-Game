@@ -8,7 +8,6 @@
 import Foundation
 
 class Card {
-    
     var imageName = ""
     var isMatch = false
     var isFlipped = false
