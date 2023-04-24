@@ -10,8 +10,10 @@ import Foundation
 class CardModel {
     
     func getCards() -> [Card] {
+        
         // Declera an empty array
         var generatedCards = [Card]()
+        
         // Array helper to track allready exists card
         var generatedNumbers = [Int]()
         

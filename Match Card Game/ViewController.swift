@@ -15,8 +15,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var cardsArray = [Card]()
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         cardsArray = model.getCards()
         
@@ -33,17 +33,34 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cardsArray.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         // Get a cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCollectionViewCell
+        
+        // Get card from the card array
         
         // TODO: Finish it -> Configure cell
+        cell.configureCell(card: cardsArray[indexPath.row])
         
         // Return it
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Get a referance to the cell that was tapped
+        let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
+        
+        // Check the status of the card to choose how to flip it
+        if cell?.card?.isFlipped == false {
+            
+            // Flip card up
+            cell?.flipUP()
+        } else {
+            
+            // Flip card down
+            cell?.flipDown()
+        }
+    }
 }
-
