@@ -172,7 +172,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             showAlert(title: "Congratulations!", message: "You've won the game!")
         } else {
             // User hasn't won yet. Check of there's any tine left
-            showAlert(title: "Time;s ", message: <#T##String#>)
+            showAlert(title: "Time's Up", message: "Sorry, better luck next time!")
         }
         
     }
